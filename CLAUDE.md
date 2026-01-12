@@ -62,6 +62,13 @@ nihongo_cc/
 
 本專案可透過 `/notebooklm` 指令查詢 Google NotebookLM 筆記本，獲得有來源引用的答案。
 
+### 配置管理
+
+NotebookLM 筆記本配置存放於 `.notebooklm/config.json`。
+
+**目前筆記本：**
+- **N3 Grammar Analysis**: https://notebooklm.google.com/notebook/55da6f98-4687-4547-a1d9-a2641928f96f
+
 ### 使用方式
 ```
 /notebooklm <問題>
@@ -71,11 +78,15 @@ nihongo_cc/
 - 查詢已上傳至 NotebookLM 的日語教材內容
 - 對照文法書籍確認語法解釋
 - 從來源文件中找出例句和用法說明
+- 確認獨特文法點和去重複
 
 ### 優點
 - 回答基於上傳的文件，減少幻覺
 - 提供引用來源，方便追溯原文
 - 可整合多本教材進行交叉查詢
+
+### 新增筆記本
+編輯 `.notebooklm/config.json` 並在 `notebooks` 陣列中新增配置
 
 ## 文法練習系統
 

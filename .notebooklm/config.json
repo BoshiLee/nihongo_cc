@@ -1,0 +1,17 @@
+{
+  "notebooks": [
+    {
+      "name": "N3 Grammar Analysis",
+      "url": "https://notebooklm.google.com/notebook/55da6f98-4687-4547-a1d9-a2641928f96f",
+      "description": "N3 文法分析筆記本",
+      "added_date": "2026-01-12",
+      "topics": [
+        "N3 grammar",
+        "Japanese grammar analysis",
+        "JLPT N3"
+      ],
+      "primary": true
+    }
+  ],
+  "default_notebook": "N3 Grammar Analysis"
+}
