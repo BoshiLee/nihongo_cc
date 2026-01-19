@@ -1,4 +1,4 @@
-# 日語學習專案 (Nihongo CC)
+﻿# 日語學習專案 (Nihongo CC)
 
 這是一個結合 Claude Code 的日語學習系統，用於管理生詞、例句、語法筆記並進行主動學習練習。
 
@@ -22,7 +22,8 @@ nihongo_cc/
 │   ├── N1/        # JLPT N1 語法
 │   └── Custom/    # 自訂語法筆記
 ├── Practice/      # AI 生成的練習題
-└── Review/        # 學習進度與回顧
+├── Review/        # 學習進度與回顧
+└── Excalidraw/    # 學習關係圖
 ```
 
 ## 常用指令
@@ -103,9 +104,10 @@ NotebookLM 筆記本配置存放於 `.notebooklm/config.json`。
 ### 相關 Skills
 
 | Skill | 功能 | 觸發方式 |
-|:---|:---|:---|
+| ---- | ---- | ---- |
 | `grammar-practice.md` | 出題、批改、儲存練習 | 「練習 ch1 的文法」「出 N3 文法題」 |
 | `grammar-review.md` | 練習前複習錯題 | 「複習」「看昨天的錯題」 |
+| `learning-map.md` | 生成學習關係圖 | 「畫學習關係圖」「用 Excalidraw 整理」 |
 
 ### 檔案命名規則
 
@@ -114,6 +116,7 @@ Practice/YYYY-MM-DD_N[等級]_[來源].md      # 練習檔案
 Practice/YYYY-MM-DD_N[等級]_[來源]_02.md   # 同日第二回
 Practice/YYYY-MM-DD_N[等級]_[來源]_summary.md  # 當日總結
 Review/YYYY-MM-DD_errors.md                # 錯題複習
+Excalidraw/YYYY-MM-DD_grammar_map.excalidraw  # 學習關係圖
 ```
 
 ### 批改格式
@@ -130,7 +133,7 @@ Review/YYYY-MM-DD_errors.md                # 錯題複習
 使用 `{漢字|ふりがな}` 格式標註讀音：
 
 | 寫法 | 顯示效果 |
-|:---|:---|
+| ---- | ---- |
 | `{漢字|かんじ}` | 漢字（かんじ） |
 | `{問題|もんだい}` | 問題（もんだい） |
 | `{話し合う|はなしあう}` | 話し合う（はなしあう） |
@@ -151,7 +154,45 @@ Review/YYYY-MM-DD_errors.md                # 錯題複習
 - 錯誤原因分析
 - 快速記憶卡
 
+## 學習關係圖
+
+使用 Excalidraw 生成當日學習內容的視覺化關係圖。
+
+### 功能
+
+- 將文法點按類別分組（時間、程度、話題、決定等）
+- 標記答對（綠色）和答錯（紅色）的文法點
+- 用紅色箭頭連接易混淆的文法組合
+- 顯示當日總分統計
+
+### 使用方式
+
+```
+「畫學習關係圖」
+「用 Excalidraw 整理今天學的文法」
+「繪製文法關係圖」
+```
+
+### 圖表顏色
+
+| 顏色 | 意義 |
+| ---- | ---- |
+| 綠色 | 答對的文法點 |
+| 紅色 | 答錯/需加強的文法點 |
+| 紫色 | 分類標題 |
+| 黃色 | 重點摘要 |
+
+### 輸出位置
+
+```
+Excalidraw/YYYY-MM-DD_grammar_map.excalidraw
+```
+
+可用 Obsidian Excalidraw 插件或 excalidraw.com 開啟編輯。
+
 ## 出題規則
+
+出完題目立即存放在 Pratice 資料夾
 
 ### 禁止洩漏答案
 - 出題時**不可在選項旁標示正解**
@@ -162,6 +203,13 @@ Review/YYYY-MM-DD_errors.md                # 錯題複習
 ## 注意事項
 
 - 所有筆記使用 Markdown 格式
+- **Markdown 表格前必須空一行**，否則無法正確渲染：
+  ```markdown
+  **標題：**
+
+  | 欄位 | 內容 |
+  | ---- | ---- |
+  ```
 - 日語內容盡量標註假名（振り仮名）
 - 練習題存放於 `Practice/` 並標註日期
 - 錯題存放於 `Review/` 供下次練習前複習
